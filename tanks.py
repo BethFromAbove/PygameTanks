@@ -1,6 +1,6 @@
 import pygame, os
 
-from workshop_screen import workshop_loop
+from arena_screen import arena_loop
 from main_menu_screen import main_menu_loop
 
 
@@ -34,11 +34,6 @@ done = False
 while not done:
     active_screen = game_state.get('active_screen')
 
-    # toast_stack = ToastStack()
-    # toast_stack.init_size(game_state.get('screen_size'))
-    # game_state.update({'toast_stack': toast_stack})
-
-
     if game_state.get('quit'):
         done = True
 
@@ -46,9 +41,9 @@ while not done:
         game_state.update({'screen_done': False})
         game_state = main_menu_loop(game_state)
 
-    elif active_screen == 'workshop_screen':
+    elif active_screen == 'arena_screen':
         game_state.update({'screen_done': False})
-        game_state = workshop_loop(game_state)
+        game_state = arena_loop(game_state)
 
 
     elif active_screen == 'game_end_screen':

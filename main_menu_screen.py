@@ -13,7 +13,7 @@ def quit_game(game_state):
     return game_state
 
 def start_game(game_state):
-    game_state.update({'active_screen': 'workshop_screen'})
+    game_state.update({'active_screen': 'arena_screen'})
     game_state.update({'screen_done': True})
     return game_state
 
@@ -35,7 +35,7 @@ def main_menu_loop(game_state):
     logo = ImageSprite(
             screen_width*0.315,
             screen_height*0.15,
-            os.getcwd() +"/images/pixel-rubber-duck.png"
+            os.getcwd() +"/images/Tank.png"
             )
     logo.rect.centerx = (screen_width/2)
     logo_sprites.add(logo)
@@ -107,8 +107,9 @@ def main_menu_loop(game_state):
 
         # Display.
         game_surface.fill((0, 0, 0))
-        all_sprites.draw(game_surface)
         logo_sprites.draw(game_surface)
+        all_sprites.draw(game_surface)
+
 
         pygame.display.update()
 
